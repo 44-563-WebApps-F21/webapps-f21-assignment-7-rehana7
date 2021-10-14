@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html> <head> 
+    <title>stack page</title>
+    <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style>
+<style>
+    body {
+      background-image: url('yellow.jpg');
+    }
+    </style>
+</head>
+
+
+
+<body> 
+    <div class= "container-fluid align-center" align= "middle">
+        <h2 style = "color: orangered; text-align:center">Rehana Naguru builds a stack</h2>
+        <input type="text" style = "color :orchid; text-align :center;" id ="input1" name ="input" placeholder = "Enter text">
+        <p style ="color:royalblue"> Press the button to create an new element of type div and then add it to the container.
+		</p>
+        <button onclick="makeNewDiv()" id="push" class= "btn btn-primary">Push value</button>
+        <button onclick="pop()" id="pop" class= "btn btn-primary">Pop </button>
+        <button onclick="zap()" id="zap" class= "btn btn-primary">Zap values</button>
+        <br>
+    
+		<div class="flex-container" id="target">
+		  <div class="stack">row item 1</div>   
+		  <div class="stack">row item 2</div>  
+		  <div class="stack">row item 3</div>  
+		</div>
+	</div>
+</body>
+<script>
+	function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("div")
+        input_value = document.getElementById("input1").value
+		element.innerHTML = input_value
+		element.className = "stack"
+		/* add it to the container */
+		document.getElementById('target').appendChild(element)
+	}
+
+
+</script>
+</html>	
