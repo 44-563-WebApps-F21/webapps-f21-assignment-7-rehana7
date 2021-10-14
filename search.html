@@ -24,7 +24,11 @@
   <p style="color:rgb(216, 38, 240); text-align:center">Click on the squares to search for wild life</p> 
   <p id="tries" style="color:rgb(216, 38, 240) ; text-align:center">Number of tries is zero</p>
   <p id="distance" style="color:rgb(216, 38, 240);text-align:center">Distance is unknown</p> 
-  
+  <div align ="middle">
+    <button class="btn btn-primary" onclick = "newgame()">New Game</button> 
+  </div>
+  <br>
+  <br>
   <div class="container row" >
     <div class="col-sm-2"><img src="bush.jpg" id="1" onclick="check(0)" height="200" width="200"></div>
     <div class="col-sm-2"><img src="bush.jpg" id="2" onclick="check(1)" height="200" width="200"></div> 
@@ -102,15 +106,19 @@
          elementValue++
        }
       }
-    }
-</script>
+    } 
+function newgame(){
+  triesCount = 0;
+  animalLocation = Math.round(Math.random() * (23-0) +0 );
+  document.getElementById("tries").innerHTML =" Number of tries is zero" ;
+  distanceOfAnimal ="unknown" ;
+  document.getElementById("distance").innerHTML = "Distance is" + distanceOfAnimal ;
+  for(var i=0;i<=23;i++){
+    document.getElementById(ids[i]).src = "bush.jpg";
+  }
 
-<div class="container">
-  <button type="button" class="btn btn-success btn-sm"></button>
-  <button type="button" class="btn btn-warning  btn-sm"></button>
-  <button type="button" class="btn btn-danger btn-sm"></button>
-  <button type="button" class="btn btn-link btn-sm"></button>
-</div>
+}
+</script>
 
 </body>
 </html>

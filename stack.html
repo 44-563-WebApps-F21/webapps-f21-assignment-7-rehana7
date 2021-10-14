@@ -38,6 +38,8 @@
         <button onclick="makeNewDiv()" id="push" class= "btn btn-primary">Push value</button>
         <button onclick="popItem()" id="pop" class= "btn btn-primary">Pop </button>
         <button onclick="zap()" id="zap" class= "btn btn-primary">Zap values</button>
+        <button onclick="unique()" id="unique" class= "btn btn-primary">Unique</button>
+        
         <br>
         <br>
         <br>
@@ -79,6 +81,20 @@
                 }
             }
         }
+    } 
+    function unique(){
+        let stackItems = document.getElementsByClassName('stack');
+        for(let i = 0;i<stackItems.length; i++) {
+            element1=stackItems[i].innerHTML;
+            for (let j=i+1;j<stackItems.length;j++) {
+                element2=stackItems[j].innerHTML;
+                if (element1==element2) {
+                    stackItems[j].remove();
+                    j--;
+                    i--;
+                }
+            }    
     }
+}
 </script>
-</html>	
+</html>
