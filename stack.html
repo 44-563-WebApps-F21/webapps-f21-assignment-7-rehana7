@@ -36,8 +36,10 @@
         <p style ="color:royalblue"> Press the button to create an new element of type div and then add it to the container.
 		</p>
         <button onclick="makeNewDiv()" id="push" class= "btn btn-primary">Push value</button>
-        <button onclick="pop()" id="pop" class= "btn btn-primary">Pop </button>
+        <button onclick="popItem()" id="pop" class= "btn btn-primary">Pop </button>
         <button onclick="zap()" id="zap" class= "btn btn-primary">Zap values</button>
+        <br>
+        <br>
         <br>
     
 		<div class="flex-container" id="target">
@@ -56,8 +58,27 @@
 		element.className = "stack"
 		/* add it to the container */
 		document.getElementById('target').appendChild(element)
-	}
-
-
+	} 
+    function popItem(){ 
+        let stackItems = document.getElementsByClassName("stack")
+        let length = stackItems.length;
+        if( stackItems !=undefined && length > 0) {
+            stackItems[length-1].remove()
+        }
+    }
+    function zap(){
+        input_value =document.getElementById("input1").value 
+        stackItems =document.getElementsByClassName("stack")
+        if(stackItems != undefined && stackItems.length>0){
+            for(let i=0; i< stackItems.length;i++){
+                var element =stackItems[i].innerHTML;
+                if(element == input_value){
+                    console.log(stackItems[i])
+                    stackItems[i].remove();
+                    i--;
+                }
+            }
+        }
+    }
 </script>
 </html>	
