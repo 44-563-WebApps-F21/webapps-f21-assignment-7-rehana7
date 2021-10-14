@@ -8,6 +8,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-image: url('yellow.jpg');
+    }
+    </style>
 </head>
 <body>
 <div class = "container-fluid align-center" align="middle" >
@@ -23,11 +28,25 @@
     myTime =Date.now();
     console.log(myTime); 
 }
-  function buttonPress2() {
-    setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
+  function startTime() { 
+        for(let i=0;i<4;i++){
+            j = (3 - i) *1000;
+            setTimeout(() => {
+                document.getElementById("countdown").innerHTML = i;
+            },j)
+        }   
+        setTimeout(() => { 
+            if(myTime == undefined){
+            document.getElementById("target").innerHTML = "Too Slow" ;
+            }
+            else {
+                buttonTime = Date.now();
+                diff = buttonTime - myTime 
+                document.getElementById("target").innerHTML = "Time was " + diff + " milliseconds"
+                myTime = undefined 
+            }
+        },3000)   
+}
   </script>
 
 </body>
